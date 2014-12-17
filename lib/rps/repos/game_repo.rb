@@ -6,6 +6,7 @@ require_relative 'chatitude/repos/rounds_repo.rb'
 
 
 module Rps
+  class GameRepo
  def self.create_db_connection(dbname)
    PG.connect(host: 'localhost', dbname: dbname)
  end
@@ -57,4 +58,5 @@ module Rps
      DROP TABLE users;
    SQL
  end
+end
 end
