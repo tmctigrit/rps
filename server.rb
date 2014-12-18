@@ -7,29 +7,35 @@ require 'pry-byebug'
 require_relative 'lib/rps.rb'
 
 configure do
-  enable :sessions 
+  enable :sessions
   set :bind, '0.0.0.0'
-end 
+end
 
-helpers do 
+helpers do
     def db
       db = RPS.create_db_connection('rps')
     end
 end
 
 # homepage
-
 get '/' do
   erb :index
 end
 
-# user signup
 
 get '/signup' do
+# TODO: render template with form for user to sign up
+
+  #erb :'auth/signup'
   erb :index
 end
 
 post '/signup' do
+    # TODO: save user's info to db and create session
+    # Create the session by adding a new key value pair to the
+    # session hash. The key should be 'user_id' and the value
+    # should be the user id of the user who was just created.
+    db = RPS.create_db_connection('rockpaperscissors')
     @user_data = RPS::UsersRepo.save(db, params)
     session['user_id'] = @user_data['id']
 
@@ -44,10 +50,10 @@ end
 
 post '/signin' do
     # params = JSON.parse request.body.read
-    
+
     # username = params['username']
     # password = params['password']
-    
+
     @user_login = RPS::UsersRepo.find_by_username(db, params[:username])
     session['user_id'] = @user_login['id']
 
@@ -75,7 +81,7 @@ end
 
 
 # user sign out
-post '/signout' do 
+post '/signout' do
     session.clear
     redirect to '/'
 end
