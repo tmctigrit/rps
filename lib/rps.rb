@@ -31,6 +31,16 @@ module RPS
         player2 INT references users(id),
         game_winner VARCHAR
       );
+      
+      CREATE TABLE IF NOT EXISTS games(
+        id SERIAL PRIMARY KEY,
+        player1 INT references users(id),
+        player2 INT references users(id),
+        player1_move VARCHAR,
+        player2_move VARCHAR,
+        winner INT references users(id)
+      );
+
       CREATE TABLE IF NOT EXISTS rounds(
         id SERIAL PRIMARY KEY,
         p1 INT references users(id),
