@@ -63,23 +63,6 @@ post '/signin' do
 
     # --- following commented code not needed, for now
     # params = JSON.parse request.body.read
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-
-    # username = params['username']
-    # password = params['password']
-
-    @user_login = RPS::UsersRepo.find_by_username(db, params[:username])
-    session['user_id'] = @user_login['id']
-
-    redirect to '/welcome'
-=======
-    # username = params['username']
-    # password = params['password']
-=======
-    # username = params['username']
-    # password = params['password']
->>>>>>> Stashed changes
     # ---
     
     user_data = {:username => params[:username], :password => params[:password]}
@@ -90,10 +73,6 @@ post '/signin' do
     else
       status 400
     end
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 end
 
 
