@@ -6,4 +6,4 @@ gem 'sinatra-contrib'
 gem 'pry-byebug'
 gem 'pg'
 gem 'rake'
-
+gem 'bcrypt', '~> 3.1.7'

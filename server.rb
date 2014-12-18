@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'pg'
 require 'pry-byebug'
+require 'bcrypt'
 
 
 require_relative 'lib/rps.rb'
@@ -48,7 +49,16 @@ get '/signin' do
 end
 
 post '/signin' do
+    #
+    # SignIn Endpoint
+    #
+    # assume incoming parameters:
+    # ex. /signin?username=someUser&password=somePassword
+    #
+
+    # --- following commented code not needed, for now
     # params = JSON.parse request.body.read
+<<<<<<< Updated upstream
 
     # username = params['username']
     # password = params['password']
@@ -57,6 +67,20 @@ post '/signin' do
     session['user_id'] = @user_login['id']
 
     redirect to '/welcome'
+=======
+    # username = params['username']
+    # password = params['password']
+    # ---
+    
+    user_data = {:username => params[:username], :password => params[:password]}
+    @user_login = RPS::UsersRepo.user_login(db, user_data)
+    if @user_login then
+      session['user_id'] = username
+      redirect to '/welcome'
+    else
+      status 400
+    end
+>>>>>>> Stashed changes
 end
 
 

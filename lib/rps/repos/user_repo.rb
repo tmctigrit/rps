@@ -22,16 +22,48 @@ module RPS
       result.first
     end
 
-    # save a new user & password into users db
-    def self.save db, user_data
-      #
-      # add code - encrypt password before insert
-      #
-      sql = %q[INSERT INTO users (username, password) VALUES($1, $2)]
-      result = db.exec(sql, [user_data[:username], user_data[:password]])
-      result.first
+    # log a user in with username and password
+    # returns true or false
+    def self.user_login db, user_data
+      sql = %q[SELECT password FROM users WHERE username = $1]  # create sql
+      result = (sql, [user_data[:username]])                    # execute sql
+      result.first                                              # sql result
+
+      # if result.first has data
+      if (result.first) then
+        # test encrypted login password against database encrypted password
+        if (BCrypt::Password.create([user_data[:password]]) == result[:password])
+          return true   # Success... encrypted passwords matches
+        else
+          return false  # Fail...   encrypted passwords do not match
+        end
+      else
+        # Fail... user not found
+        false
+      end if
+
     end
 
+    # save a new user & password into users db
+    def self.save db, user_data
+      # encrypt password for new user
+      myPasswordEncrypted = BCrypt::Password.create([user_data[:password]])
+      # gmh 20141218-1041- not sure following syntax is correct...
+      new_user_data = {:user_id => user_data[:username], :password => myPasswordEncrypted}
+
+      sql = %q[INSERT INTO users (username, password) VALUES($1, $2)]
+      result = db.exec(sql, [new_user_data[:username], new_user_data[:password]])
+      result.first
+    end
   end
 end
+
+#
+# 2014-12-18 10:14AM Users Table Layout
+#
+# CREATE TABLE IF NOT EXISTS users(
+#   id SERIAL PRIMARY KEY,
+#   username VARCHAR,
+#   password VARCHAR
+# );
 
