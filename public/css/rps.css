@@ -1,5 +1,143 @@
-form{
-    margin-left: 25%;
-    margin-right:25%;
-    width: 100%;
+/*HOME PAGE*/
+
+.throw {
+	text-align: center;
+}
+
+.signin-form {
+	border: 1px solid #9e9e9e;
+	border-radius: 15px;
+	width: 30%;
+    display: inline-block;
+	background-color: #9e9e9e;
+}
+
+.signup-form {
+	border: 1px solid #9e9e9e;
+	border-radius: 15px;
+    width: 30%;
+    display: inline-block;
+    background-color: #9e9e9e;
+}
+
+
+.star {
+	padding-bottom: 40px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #ee6c22;
+	font-size: 40px;
+	text-align: center;
+}
+
+.logo {
+	text-align: center;
+}
+
+.submitform {
+	background-color: #01887c;
+	font-family: 'Open Sans Condensed', sans-serif;
+	letter-spacing: 2px;
+}
+
+.test1 {
+  width: 20%;
+  display: inline-block;
+}
+
+.test2 {
+	width: 20%;
+	display: inline-block;
+}
+
+.signin-up-text {
+	font-family: 'Montserrat', sans-serif;
+    color: #383838;
+}
+
+/*WELCOME PAGE*/
+
+.welcomename {
+	text-align: center;
+	font-family: 'Open Sans Condensed', sans-serif;
+	padding-top: 40px;
+}
+
+.new-game-button {
+	text-align: center;
+	padding-top: 40px;
+}
+
+
+.opponent {
+	text-align: center;
+	background-color: #b6b6b6;
+	border-radius: 15px;
+	border: 1px solid #b6b6b6;
+	width: 35%;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+#opponent-id {
+	display: none;
+}
+
+.opponent-text {
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.button.round {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #01887c;
+  /*text-align: center;*/
+}
+
+.button.alert {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ee6c22;
+}
+
+
+/*GAMES PAGE */
+
+.games-moves {
+	border: 1px solid #9e9e9e;
+	border-radius: 15px;
+	width: 30%;
+	display: inline-block;
+	background-color: #9e9e9e;
+	height: 300px;
+	margin: 0 auto;
+	padding-top: 30px;
+}
+
+.opponents-moves {
+	border: 1px solid #9e9e9e;
+	border-radius: 15px;
+	width: 30%;
+	display: inline-block;
+	background-color: #9e9e9e;
+	height: 300px;
+	margin: 0 auto;
+	padding-top: 30px;
+}
+
+
+.test3 {
+	width: 25%;
+	/*border: 1px solid red;*/
+	padding-left: 190px;
+
+}
+
+.button.radius {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #01887c;
+  /*text-align: center;*/
+}
+
+.opponents-moves-text {
+	font-family: 'Open Sans Condensed', sans-serif;
+	letter-spacing: 2px;
+	font-size: 32px;
 }
