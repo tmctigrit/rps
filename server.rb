@@ -2,7 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'pg'
 require 'pry-byebug'
-require 'rack-flash'
+
 
 require_relative 'lib/rps.rb'
 
@@ -79,6 +79,7 @@ end
 get '/summary' do
   erb :summary
 end
+
 
 # user sign out
 post '/signout' do 
