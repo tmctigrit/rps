@@ -1,14 +1,25 @@
 module RPS
   class UsersRepo
 
+    # find all 
+    def self.all
+      sql = %q[SELECT * FROM users]
+      result = PSS.db.exec(sql)
+      result.entries
+    end
+
     # find user by username
-    def self.find_by_name db, user_data
+    def self.find_by_username username
       sql = %q[SELECT * FROM users WHERE username = $1]
-      result = db.exec(sql, [user_data[:username]])
+      result = RPS.db.exec(sql, [username])
       result.first
-      #
-      # add code - decrypt password after retreival from db
-      #
+    end
+     
+    # find user by id
+    def self.find id
+      sql = %q[SELECT * FROM users WHERE id = $1]
+      result = RPS.db.exec(sql, [id])
+      result.first
     end
 
     # save a new user & password into users db
@@ -23,5 +34,4 @@ module RPS
   
   end
 end
-
 
