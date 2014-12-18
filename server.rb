@@ -54,26 +54,19 @@ post '/signin' do
     redirect to '/welcome'
 end
 
-# welcome page; user after signin
-get '/welcome' do
- erb :welcome
-end
 
-post '/welcome' do
- # play new game 
+post '/rounds/rounds_id' do
+ # play new game
+ erb :welcome 
 end
 
 # new game page
-get '/gamenew' do
+get '/game' do
     # choose opponent
  erb :new_game
 end
 
 
-# game over page
-get '/gameover' do
-  erb :game_over
-end
 
 # game summary
 get '/summary' do
