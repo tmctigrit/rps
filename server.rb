@@ -32,12 +32,17 @@ get '/signup' do
 end
 
 post '/signup' do
-    # TODO: save user's info to db and create session
-    # Create the session by adding a new key value pair to the
-    # session hash. The key should be 'user_id' and the value
-    # should be the user id of the user who was just created.
-    @user_data = RPS::UsersRepo.save(db, params)
-    # session['user_id'] = @user_data['id']
+    #
+    # SignUp Endpoint
+    #
+    # assume incoming parameters:
+    # ex. /signin?username=someUser&password=somePassword
+    #
+
+    user_data = {:username => params[:username], :password => params[:password]}
+    @user_save = RPS::UsersRepo.save(db, params)
+
+    session['user_id'] = @user_save['id']
 
     redirect to '/welcome'
 end
@@ -59,6 +64,7 @@ post '/signin' do
     # --- following commented code not needed, for now
     # params = JSON.parse request.body.read
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
     # username = params['username']
     # password = params['password']
@@ -70,6 +76,10 @@ post '/signin' do
 =======
     # username = params['username']
     # password = params['password']
+=======
+    # username = params['username']
+    # password = params['password']
+>>>>>>> Stashed changes
     # ---
     
     user_data = {:username => params[:username], :password => params[:password]}
@@ -80,6 +90,9 @@ post '/signin' do
     else
       status 400
     end
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 end
 
