@@ -6,3 +6,4 @@ gem 'sinatra-contrib'
 gem 'pry-byebug'
 gem 'pg'
 gem 'rake'
+

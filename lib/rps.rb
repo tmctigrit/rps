@@ -1,7 +1,7 @@
 require 'pg'
 
-require_relative 'rps/repos/games_repo.rb'
-require_relative 'rps/repos/users_repo.rb'
+require_relative 'rps/repos/game_repo.rb'
+require_relative 'rps/repos/user_repo.rb'
 require_relative 'rps/repos/rounds_repo.rb'
 
 

@@ -1,5 +1,6 @@
-module
+module RPS 
   class GameRepo
+
     def self.all db
       sql = %q[SELECT * FROM games ]
       result = db.exec(sql)
@@ -14,7 +15,7 @@ module
 
     def start_game db, players
       sql = %q[INSERT INTO games (player1, player2) VALUES ($1, $2) RETURNING *]
-      result = db.exec(sql, [players[:player1], players[:player2])
+      result = db.exec(sql, players[:player1], players[:player2])
       result.first
     end
 
