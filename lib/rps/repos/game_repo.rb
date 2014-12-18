@@ -1,4 +1,4 @@
-module RPS 
+module RPS
   class GameRepo
 
     # get all games
@@ -45,7 +45,7 @@ sql = %q[SELECT $1 FROM $2 WHERE $3 = $4]
       result = db.exec(sql, [game_id])
       result.first
     end
-    
+
     # given game_id, get player2 name from users table
     def get_player2_name_by_game_id(game_id)
       sql = %q[SELECT u.username FROM games as g, users as u WHERE g.id = u.id AND g.id = $1]
@@ -54,7 +54,7 @@ sql = %q[SELECT $1 FROM $2 WHERE $3 = $4]
     end
 
     # given player1 id, get player1's username
-    def get_player1
+    # def get_player1
     # given player2 id, get player2's username
 
 
