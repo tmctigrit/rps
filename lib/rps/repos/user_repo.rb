@@ -1,7 +1,7 @@
 module RPS
   class UsersRepo
 
-    # find all 
+    # find all
     def self.all
       sql = %q[SELECT * FROM users]
       result = PSS.db.exec(sql)
@@ -14,9 +14,9 @@ module RPS
       result = RPS.db.exec(sql, [username])
       result.first
     end
-     
+
     # find user by id
-    def self.find id
+    def self.find user_id
       sql = %q[SELECT * FROM users WHERE id = $1]
       result = RPS.db.exec(sql, [id])
       result.first
@@ -27,11 +27,11 @@ module RPS
       #
       # add code - encrypt password before insert
       #
-      sql = %q[INSERT INTO users (username, passwrod) VALUES($1, $2)]
+      sql = %q[INSERT INTO users (username, password) VALUES($1, $2)]
       result = db.exec(sql, [user_data[:username], user_data[:password]])
       result.first
     end
-  
+
   end
 end
 
