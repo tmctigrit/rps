@@ -27,7 +27,7 @@ module RPS
       #
       # add code - encrypt password before insert
       #
-      sql = %q[INSERT INTO users (username, passwrod) VALUES($1, $2)]
+      sql = %q[INSERT INTO users (username, password) VALUES($1, $2)]
       result = db.exec(sql, [user_data[:username], user_data[:password]])
       result.first
     end
