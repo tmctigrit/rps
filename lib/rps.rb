@@ -1,8 +1,8 @@
 require 'pg'
 
-require_relative 'chatitude/repos/games_repo.rb'
-require_relative 'chatitude/repos/users_repo.rb'
-require_relative 'chatitude/repos/rounds_repo.rb'
+require_relative 'rps/repos/games_repo.rb'
+require_relative 'rps/repos/users_repo.rb'
+require_relative 'rps/repos/rounds_repo.rb'
 
 
 module RPS
