@@ -1,17 +1,28 @@
-<!-- home page -->
+<!-- index home page-->
+
+<div class="logo">
+  <img src="images/rpslogo.jpg"></img>
+</div>
 
 
-<h3> Play Rock Paper Scissors! </h3>
+<div class="star"> 
+  <img src="images/star.png"> DO YOU WANT A LITTLE TASTE OF THE GLORY? </img> <img src="images/star.png"> </img>
+</div>
+
+
+<div class="test1"></div> <!--this is to center the forms -->
+
 <div class="signin-form">
- <div class= "row">
-  <div class= "large-6 small-6 columns">
 
-      <h6> Sign In: </h6>
+ <div class= "row">
+  <div class= "large-6 columns">
+
+      <h6 class="signin-up-text"> Sign In: </h6>
 
     <form action='/signin' method="post" name="signin">
       <input type='text' id='username' name='username' placeholder='Enter Username' />
       <input type='password' id='password' name='password' placeholder='Enter Password' />
-      <button type='submit' value='Submit' id='signin'> Submit </button>
+      <button type='submit' value='Submit' id='signin' class="submitform"> SUBMIT </button>
     </form>
   </div>
  </div>
@@ -19,16 +30,20 @@
 
 
 <div class="signup-form">
- <div class= "row">
-  <div class= "large-6 small-6 columns">
 
-      <h6> Sign Up: </h6>
+ <div class= "row">
+  <div class= "large-6 columns">
+
+      <h6 class="signin-up-text"> Sign Up: </h6>
 
     <form action='/signup' method="post" name="signup">
       <input type='text' id='username' name='username' placeholder='Enter Username' />
       <input type='password' id='password' name='password' placeholder='Enter Password' />
-      <button type='submit' value='Submit' id='signup'> Submit </button>
+      <button type='submit' value='Submit' id='signup' class="submitform"> SUBMIT </button>
     </form>
   </div>
  </div>
 </div>
+
+
+<div class="test2"></div>  <!--this is to center the forms -->

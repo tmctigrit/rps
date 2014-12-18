@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title> Rock Paper Scissors </title>
 
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/rps.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'> <!-- for submit buttons and tagline-->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'> <!-- for signin/up form text-->
 
     <script src="js/vendor/modernizr.js"></script>
 </head>
@@ -13,15 +17,21 @@
 
 <!-- body goes here -->
 
-<h1> RPS </h1>
-
       <%= yield %>
 
-   <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/jquery-2.1.1.js"></script>
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
     </script>
+   
+   <script>
+
+  function showDiv() {
+    document.getElementById('opponent-id').style.display = "block";
+  }
+
+   </script>
 
   </body>
 </html>
