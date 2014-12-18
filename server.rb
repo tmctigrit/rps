@@ -13,7 +13,7 @@ end
 
 helpers do
     def db
-      db = RPS.create_db_connection('rps')
+      db = RPS.create_db_connection('rockpaperscissors')
     end
 end
 
@@ -35,9 +35,8 @@ post '/signup' do
     # Create the session by adding a new key value pair to the
     # session hash. The key should be 'user_id' and the value
     # should be the user id of the user who was just created.
-    db = RPS.create_db_connection('rockpaperscissors')
     @user_data = RPS::UsersRepo.save(db, params)
-    session['user_id'] = @user_data['id']
+    # session['user_id'] = @user_data['id']
 
     redirect to '/welcome'
 end
@@ -63,7 +62,7 @@ end
 
 post '/rounds/rounds_id' do
  # play new game
- erb :welcome 
+ erb :welcome
 end
 
 # new game page
