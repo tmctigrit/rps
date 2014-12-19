@@ -1,11 +1,15 @@
 module RPS
   class RoundsRepo
+    def self.all db
+      sql = %q[SELECT * FROM rounds]
+      db.exec(sql).entries
+    end
 
     # find a round given a rounds id
     def self.find db, rounds_data
       sql = %q[SELECT * FROM rounds WHERE id = $1]
       result = db.exec(sql, [rounds_data[:round_id]])
-      result.entries
+      result.first
     end
 
     def self.find_by_userid db, rounds_data
@@ -45,6 +49,12 @@ module RPS
       # rounds_data ==> :move :round_id :player (this is p1move or p2move column)
       sql = %q[UPDATE rounds SET $1 = $2 WHERE id = $3]
       result = db.exec(sql, [rounds_data[:player], rounds_data[:move], rounds_data[:round_id]])
+    end
+
+    def self.update db, round_data
+      sql = %q[UPDATE rounds SET p1move = $1, p2move = $2 WHERE id = $3]
+      db.exec(sql, [round_data['p1move'], round_data['p2move'], round_data['id']])
+      true
     end
   end
 end

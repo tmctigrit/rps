@@ -2,10 +2,10 @@
 
 <!--LOGOS-->
 <div class="logo">
-  <img src="images/rpswords.jpg"></img>
+  <img src="/images/rpswords.jpg"></img>
 </div>
 
-<div class="star"><img src="images/scissors.jpg"></img> <img src="images/paper.jpg"></img> <img src="images/rock.jpg"></img></div>
+<div class="star"><img src="/images/scissors.jpg"></img> <img src="/images/paper.jpg"></img> <img src="/images/rock.jpg"></img></div>
 
 <!--SHOWS GAME MOVES-->
 
@@ -23,16 +23,23 @@
     <div class= "large-6 columns">
 
   <div class="moves1">
-    <a href="/summary" class="button radius"> ROCK </a>
+    <form action='/rounds/<%= @round['id'] %>' method='post'>
+      <input type='hidden' value='rock' name='move'>
+      <input type='submit' value='Rock'>
+    </form>
   </div>
       <br>
   <div class="moves2">
-    <a href="/summary" class="button radius"> PAPER </a>
-  </div>
+    <form action='/rounds/<%= @round['id'] %>' method='post'>
+      <input type='hidden' value='paper' name='move'>
+      <input type='submit' value='Paper'>
+    </form>  </div>
     <br>
   <div class="moves3">
-    <a href="/summary" class="button radius"> SCISSORS </a>
-  </div>
+    <form action='/rounds/<%= @round['id'] %>' method='post'>
+      <input type='hidden' value='scissors' name='move'>
+      <input type='submit' value='Scissors'>
+    </form>  </div>
   </div>
 
   </div>

@@ -1,0 +1,5 @@
+
+
+<% @active_rounds.each do |r| %>
+	<a href='/rounds/<%= r[:id] %>'>Fight with <%= r[:opponent_name] %></a><br />
+<% end %>

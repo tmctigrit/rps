@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'pg'
-#require 'pry-byebug'
+require 'pry-byebug'
 require 'bcrypt'
 
 
@@ -35,9 +35,44 @@ end
 get '/welcome' do
   opponents = RPS::UsersRepo.all db
   @opponents = opponents.select { |x| x['username'] != @current_user['username'] }
-  erb :welcome, :locals => {opponent_list: erb(:opponent_list)}
+  active_rounds = RPS::RoundsRepo.all(db).select do |r|
+    mine = r['p1'] == @current_user['id'] || r['p2'] == @current_user['id']
+    active = r['p1move'].nil? || r['p2move'].nil?
+    mine && active
+  end
+
+  @active_rounds = active_rounds.map do |round|
+    opponent_id = if @current_user['id'] != round['p1']
+      round['p1']
+    else
+      round['p2']
+    end
+    opponent = RPS::UsersRepo.find db, opponent_id
+    {
+      id: round['id'],
+      opponent_name: opponent['username']
+    }
+  end
+
+  erb :welcome, :locals => {
+    opponent_list: erb(:opponent_list),
+    active_games: erb(:active_games)
+  }
 end
 
+get '/rounds/:id' do
+  round = RPS::RoundsRepo.find db, {round_id: params[:id]}
+  @round = round
+  erb :new_game
+end
+
+post '/rounds/:id' do
+  round = RPS::RoundsRepo.find db, {round_id: params[:id]}
+  player = @current_user['id'] == round['p1'] ? 'p1' : 'p2'
+  round[player+'move'] = params[:move]
+  RPS::RoundsRepo.update db, round
+  redirect to '/welcome'
+end
 
 get '/signup' do
 # TODO: render template with form for user to sign up
@@ -47,36 +82,36 @@ get '/signup' do
 end
 
 post '/signup' do
-    #
-    # SignUp Endpoint
-    #
-    # assume incoming parameters:
-    # ex. /signin?username=someUser&password=somePassword
-    #
+  #
+  # SignUp Endpoint
+  #
+  # assume incoming parameters:
+  # ex. /signin?username=someUser&password=somePassword
+  #
 
-    user_data = {:username => params[:username], :password => params[:password]}
-    @user_save = RPS::UsersRepo.save(db, params)
-    session['user_id'] = @user_save['id']   #user id (int)
+  user_data = {:username => params[:username], :password => params[:password]}
+  @user_save = RPS::UsersRepo.save(db, params)
+  session['user_id'] = @user_save['id']   #user id (int)
 
-    redirect to '/welcome'
+  redirect to '/welcome'
 end
 
 post '/signin' do
-    #
-    # SignIn Endpoint
-    #
-    # assume incoming parameters:
-    # ex. /signin?username=someUser&password=somePassword
-    #
+  #
+  # SignIn Endpoint
+  #
+  # assume incoming parameters:
+  # ex. /signin?username=someUser&password=somePassword
+  #
 
-    user_data = {:username => params[:username], :password => params[:password]}
-    @user_login = RPS::UsersRepo.user_login(db, user_data)
+  user_data = {:username => params[:username], :password => params[:password]}
+  @user_login = RPS::UsersRepo.user_login(db, user_data)
 
-    if @user_login['id'] then
-      session['user_id'] = @user_login['id']
-      redirect to '/welcome'
-    else
-      "login error"
+  if @user_login['id']
+    session['user_id'] = @user_login['id']
+    redirect to '/welcome'
+  else
+    "login error"
     end
 end
 
