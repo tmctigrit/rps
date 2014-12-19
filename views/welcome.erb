@@ -5,7 +5,7 @@
  
 <div class="star"><img src="images/star.png"></img> <img src="images/star.png"></img> <img src="images/star.png"></img></div>
 
-  <h1 class="welcomename"> Welcome <%= @user_login %>!</h1>
+  <h1 class="welcomename"> Welcome <%= @current_user['username'] %>!</h1>
 
 <div class="new-game-button">
   <a href="#" class="button alert" onclick="showDiv()"> START NEW GAME </a>

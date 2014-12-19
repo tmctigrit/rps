@@ -2,23 +2,16 @@ module RPS
   class UsersRepo
 
     # find all
-    def self.all
+    def self.all db
       sql = %q[SELECT * FROM users]
-      result = PSS.db.exec(sql)
+      result = db.exec(sql)
       result.entries
     end
 
-    # find user by username
-    def self.find_by_username username
-      sql = %q[SELECT * FROM users WHERE username = $1]
-      result = RPS.db.exec(sql, [username])
-      result.first
-    end
-
     # find user by id
-    def self.find user_id
+    def self.find db, user_id
       sql = %q[SELECT * FROM users WHERE id = $1]
-      result = RPS.db.exec(sql, [id])
+      result = db.exec(sql, [user_id])
       result.first
     end
 

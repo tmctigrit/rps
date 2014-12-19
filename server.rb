@@ -13,9 +13,15 @@ configure do
 end
 
 helpers do
-    def db
-      db = RPS.create_db_connection('rockpaperscissors')
-    end
+  def db
+    db = RPS.create_db_connection('rps')
+  end
+end
+
+before do
+  if session[:user_id]
+    @current_user = RPS::UsersRepo.find(db, session[:user_id])
+  end
 end
 
 # homepage
@@ -23,9 +29,12 @@ get '/' do
   erb :index
 end
 
+get '/welcome' do
+  erb :welcome
+end
 get '/signup' do
 # TODO: render template with form for user to sign up
-
+  
   #erb :'auth/signup'
   erb :index
 end
