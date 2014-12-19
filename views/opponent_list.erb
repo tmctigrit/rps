@@ -1,3 +1,4 @@
+
 <div id="opponent-id">
   <div class="opponent">
 
@@ -5,8 +6,8 @@
 
 	<% @opponents.each do |o| %>
 		<form action='/rounds' method='post'>
-			<input type='hidden' value='<%= o['id'] %>' name='opponent_id'>
-			<input type='submit' value='<%= o['username'] %>'>
+			<input type='hidden' class="button round" value='<%= o['id'] %>' name='opponent_id'>
+			<input type='submit' class="button round" value='<%= o['username'] %>'>
 		</form>
 	<% end %>
 

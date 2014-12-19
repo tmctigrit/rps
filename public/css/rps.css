@@ -121,6 +121,7 @@
 	display: none;
 }
 
+
 .opponent-text {
 	font-family: 'Open Sans Condensed', sans-serif;
 }
@@ -165,7 +166,7 @@
 .test3 {
 	width: 25%;
 	/*border: 1px solid red;*/
-	padding-left: 190px;
+	/*padding-left: 100px;*/
 
 }
 
@@ -179,4 +180,22 @@
 	font-family: 'Open Sans Condensed', sans-serif;
 	letter-spacing: 2px;
 	font-size: 32px;
+}
+
+.throwyourmove {
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	color: #ee6c22;
+}
+
+.moves1 {
+  padding-left: 150px;
+}
+
+.moves2 {
+ padding-left: 145px;
+}
+
+.moves3 {
+ padding-left: 135px;
 }
