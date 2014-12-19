@@ -1,6 +1,13 @@
 module RPS
   class RoundsRepo
 
+    # find a round given a rounds id
+    def self.find db, rounds_data
+      sql = %q[SELECT * FROM rounds WHERE id = $1]
+      result = db.exe(sql, [rounds_data[:round_id]])
+      result.entries
+    end
+
     def self.find_by_userid db, rounds_data
       sql = %q[
         SELECT * FROM rounds
@@ -26,15 +33,18 @@ module RPS
     end    
 
     def self.save db, rounds_data
-      sql = %q[INSERT INTO rounds (p1, p2) VALUES AT ($1, $2)]
-      result = db.exec(sql, rounds_data[:opponent_id], rounds_data[:user_id])
+      sql = %q[INSERT INTO rounds (p1, p2) VALUES ($1, $2)]
+      result = db.exec(sql, [rounds_data[:opponent_id], rounds_data[:user_id]])
       result.entries
       # save the player1 id and the player2 id, and in table have player1 id, player2 id, player1 move and player 2 move
     end
 
-    def self.play_move
+    def self.play_move db, rounds_data
       # should take the user id who is playing the move and the move they want to play
       # get the wrong
+      # rounds_data ==> :move :round_id :player (this is p1move or p2move column)
+      sql = %q[UPDATE rounds SET $1 = $2 WHERE id = $3]
+      result = db.exec(sql, [rounds_data[:player], rounds_data[:move], rounds_data[:round_id]])
     end
   end
 end
