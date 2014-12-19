@@ -25,13 +25,20 @@ before do
 end
 
 # homepage
+
 get '/' do
   erb :index
 end
 
+# for welcome page - shows list of opponents to choose from. 
+
 get '/welcome' do
-  erb :welcome
+  opponents = RPS::UsersRepo.all db
+  @opponents = opponents.select { |x| x['username'] != @current_user['username'] }
+  erb :welcome, :locals => {opponent_list: erb(:opponent_list)}
 end
+
+
 get '/signup' do
 # TODO: render template with form for user to sign up
   
@@ -73,16 +80,26 @@ post '/signin' do
     end
 end
 
+post '/rounds' do
+  # this is where you create a new match between the current user and the user they clicke don
+  # params will have key called :opponent_id
+  # youll have to use the matchesrepo to record that a match has started with those two users
+  # once thats done redirect to a match page
+  round = RPS::RoundsRepo.save(@current_user['id'], params[:opponent_id])
+  redirect to '/rounds/' + round['id']
+end
+
+get '/rounds/:id' do
+  # this endpoint is where the users choose their and if both users have played a move
+  # then the endpoint can show both moves and say who won.
+end
+
+
 post '/rounds/rounds_id' do
  # play new game
  erb :welcome
 end
 
-# new game page
-get '/game' do
-    # choose opponent
- erb :new_game
-end
 
 # game summary
 get '/summary' do

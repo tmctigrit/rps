@@ -1,16 +1,18 @@
 module RPS
   class RoundsRepo
+    
     def self.find_by_userid db, rounds_data
-      sql = %q[SELECT * FROM rounds WHERE user_id = $1]
+      sql = %q[
+        SELECT * FROM rounds
+        WHERE
+          player1_id = $1
+        OR
+          player2_id = $1
+      ]
       result = db.exec(sql, [rounds_data[:user_id]])
-      result.first
+      result.entries
     end
 
-    def self.find_by_gameid db, rounds_data
-      sql = %q[SELECT * FROM rounds WHERE game_id = $1]
-      result = db.exec(sql, [rounds_data[:game_id]])
-      result.first
-    end
 
     def self.find_by_player1_all db, rounds_data
       sql =%q[SELECT * FROM rounds WHERE player1 = $1]

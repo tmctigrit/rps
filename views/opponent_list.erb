@@ -1,0 +1,14 @@
+<div id="opponent-id">
+  <div class="opponent">
+
+  <h3 class="opponent-text">Choose Your Opponent!</h3>
+
+	<% @opponents.each do |o| %>
+		<form action='/matches' method='post'>
+			<input type='hidden' value='<%= o['id'] %>' name='opponent_id'>
+			<input type='submit' value='<%= o['username'] %>'>
+		</form>
+	<% end %>
+
+ </div>
+</div>
