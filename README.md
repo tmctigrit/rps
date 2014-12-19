@@ -5,9 +5,9 @@ A Nacho Libre inspired Rock, Paper and Scissors game created during the MakerSqu
 
 Contributors: 
 ===
-- Jessica Meyer
-- Tricia McTigrit
 - Greg Horne 
+- Tricia McTigrit
+- Jessica Meyer
 
 Tech Stack:
 ===
