@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'pg'
-require 'pry-byebug'
+#require 'pry-byebug'
 require 'bcrypt'
 
 
@@ -95,14 +95,31 @@ get '/rounds/:id' do
 end
 
 post '/playmove' do
-  # the params hash should have a key like, :move and :round_id
-  # step 1, get the round.
-  # step 2, look at the player id's and compare them to @current_user id so that you can
-  #          tell which player is playing
-  # step 3, update the hash to assign the move to the correct player
-  # step 4, send the hash back to the db to be saved.
-  round = RPS::RoundsRepo.find(params[:round_id]) # this is step 1
+  #
+  # assume incoming /playmove?move=someMove&round_id=id
+  #
+  # get the round (game_id in the rounds table)
+  round = RPS::RoundsRepo.find(params[:round_id])
+  
+  # is the @current_id['id'] player1 or player2?
+  # we want to know given an id whether we will update
+  # the p1move or p2move column
+  if @current_user['id'] == round[:p1]
+    player = "p1move"
+  else
+    player = "p2move"
+  end
 
+  # update the hash to so we know who made the move
+  params[:player => player]
+
+  # send the hash back to the db to be saved.
+  # params we are sending back should have :round_id, :move, :player
+  # note that :player will be the column name in the rounds table,
+  # "p1move" or "p2move"
+  RPS::RoundsRepo.play_move(params)
+
+  redirect to '/summary'
 end
 
 # game summary
