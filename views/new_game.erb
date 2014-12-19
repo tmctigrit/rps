@@ -25,20 +25,20 @@
   <div class="moves1">
     <form action='/rounds/<%= @round['id'] %>' method='post'>
       <input type='hidden' value='rock' name='move'>
-      <input type='submit' value='Rock'>
+      <input type='submit' class="button" value='Rock'>
     </form>
   </div>
       <br>
   <div class="moves2">
     <form action='/rounds/<%= @round['id'] %>' method='post'>
       <input type='hidden' value='paper' name='move'>
-      <input type='submit' value='Paper'>
+      <input type='submit' class="button" value='Paper'>
     </form>  </div>
     <br>
   <div class="moves3">
     <form action='/rounds/<%= @round['id'] %>' method='post'>
       <input type='hidden' value='scissors' name='move'>
-      <input type='submit' value='Scissors'>
+      <input type='submit' class="button" value='Scissors'>
     </form>  </div>
   </div>
 
