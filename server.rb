@@ -80,19 +80,28 @@ post '/signin' do
     end
 end
 
+get '/new_game' do
+  erb :new_game
+end
+
+
 post '/rounds' do
   # this is where you create a new match between the current user and the user they clicke don
   # params will have key called :opponent_id
   # youll have to use the matchesrepo to record that a match has started with those two users
   # once thats done redirect to a match page
-  round = RPS::RoundsRepo.save(@current_user['id'], params[:opponent_id])
-  redirect to '/rounds/' + round['id']
+  user_data = {:p1 => @current_user['id'], :p2 => params[:opponent_id]}
+  # round = RPS::RoundsRepo.save(@current_user['id'], params[:opponent_id])
+  round = RPS::RoundsRepo.save(db, user_data)
+
+  redirect to '/new_game'
+  # redirect to /rounds/' + round['id']'
 end
 
-get '/rounds/:id' do
+# get '/rounds/:id' do
   # this endpoint is where the users choose their and if both users have played a move
   # then the endpoint can show both moves and say who won.
-end
+# end
 
 post '/playmove' do
   #
@@ -100,7 +109,7 @@ post '/playmove' do
   #
   # get the round (game_id in the rounds table)
   round = RPS::RoundsRepo.find(params[:round_id])
-  
+
   # is the @current_id['id'] player1 or player2?
   # we want to know given an id whether we will update
   # the p1move or p2move column
