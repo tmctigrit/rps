@@ -94,12 +94,16 @@ get '/rounds/:id' do
   # then the endpoint can show both moves and say who won.
 end
 
-
-post '/rounds/rounds_id' do
- # play new game
- erb :welcome
+post '/playmove' do
+  # the params hash should have a key like, :move and :round_id
+  # step 1, get the round.
+  # step 2, look at the player id's and compare them to @current_user id so that you can
+  #          tell which player is playing
+  # step 3, update the hash to assign the move to the correct player
+  # step 4, send the hash back to the db to be saved.
+  round = RPS::RoundsRepo.find(params[:round_id]) # this is step 1
+  
 end
-
 
 # game summary
 get '/summary' do
