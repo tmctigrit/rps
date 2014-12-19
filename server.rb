@@ -30,7 +30,7 @@ get '/' do
   erb :index
 end
 
-# for welcome page - shows list of opponents to choose from. 
+# for welcome page - shows list of opponents to choose from.
 
 get '/welcome' do
   opponents = RPS::UsersRepo.all db
@@ -41,7 +41,7 @@ end
 
 get '/signup' do
 # TODO: render template with form for user to sign up
-  
+
   #erb :'auth/signup'
   erb :index
 end
@@ -68,10 +68,10 @@ post '/signin' do
     # assume incoming parameters:
     # ex. /signin?username=someUser&password=somePassword
     #
-   
+
     user_data = {:username => params[:username], :password => params[:password]}
     @user_login = RPS::UsersRepo.user_login(db, user_data)
-  
+
     if @user_login['id'] then
       session['user_id'] = @user_login['id']
       redirect to '/welcome'
@@ -102,7 +102,7 @@ post '/playmove' do
   # step 3, update the hash to assign the move to the correct player
   # step 4, send the hash back to the db to be saved.
   round = RPS::RoundsRepo.find(params[:round_id]) # this is step 1
-  
+
 end
 
 # game summary
@@ -115,6 +115,6 @@ post '/signout' do
   # if user id is not nil then remove id from session
   unless params[:id].nil?
     session.delete[params:id]
-  end 
+  end
   redirect to '/'
 end

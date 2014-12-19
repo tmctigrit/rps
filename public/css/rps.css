@@ -7,7 +7,7 @@
 .signin-form {
 	border: 1px solid #9e9e9e;
 	border-radius: 15px;
-	width: 30%;
+	width: 35%;
     display: inline-block;
 	background-color: #9e9e9e;
 }
@@ -15,7 +15,7 @@
 .signup-form {
 	border: 1px solid #9e9e9e;
 	border-radius: 15px;
-    width: 30%;
+    width: 35%;
     display: inline-block;
     background-color: #9e9e9e;
 }
@@ -36,30 +36,48 @@
 .submitform {
 	background-color: #01887c;
 	font-family: 'Open Sans Condensed', sans-serif;
-	letter-spacing: 2px;
+	letter-spacing: 5px;
+  font-size: 17px;
+}
+
+.submitform:hover {
+  background-color: #ee6c22;
 }
 
 .test1 {
-  width: 20%;
+  width: 15%;
   display: inline-block;
 }
 
 .test2 {
-	width: 20%;
+	width: 15%;
 	display: inline-block;
 }
 
 .signin-up-text {
 	font-family: 'Montserrat', sans-serif;
-    color: #383838;
+  color: #383838;
+  font-size: 28px;
+
 }
 
 /*WELCOME PAGE*/
 
 .welcomename {
 	text-align: center;
+ /* font-family: 'Montserrat', sans-serif;*/
 	font-family: 'Open Sans Condensed', sans-serif;
+  letter-spacing: 3px;
 	padding-top: 40px;
+  color: #383838;
+}
+
+.welcomename2 {
+  text-align: center;
+ /* font-family: 'Montserrat', sans-serif;*/
+  font-family: 'Open Sans Condensed', sans-serif;
+  letter-spacing: 3px;
+  color: #01887c;
 }
 
 .new-game-button {
@@ -103,7 +121,7 @@
 .games-moves {
 	border: 1px solid #9e9e9e;
 	border-radius: 15px;
-	width: 30%;
+	width: 35%;
 	display: inline-block;
 	background-color: #9e9e9e;
 	height: 300px;
@@ -114,7 +132,7 @@
 .opponents-moves {
 	border: 1px solid #9e9e9e;
 	border-radius: 15px;
-	width: 30%;
+	width: 35%;
 	display: inline-block;
 	background-color: #9e9e9e;
 	height: 300px;
