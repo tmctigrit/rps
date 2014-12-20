@@ -12,6 +12,7 @@ Contributors:
 Tech Stack:
 ===
 - Ruby 
+- Sinatra
 - Javascript
 - HTML
 - CSS
