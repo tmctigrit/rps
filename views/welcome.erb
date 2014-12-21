@@ -5,12 +5,17 @@
   <img src="images/rpswords.jpg"></img>
 </div>
 
-<div class="star"><img src="images/scissors.jpg"></img> <img src="images/paper.jpg"></img><img src="images/rock.jpg"></img></div>
+<div class="star"><img src="images/scissors.jpg"></img><img src="images/paper.jpg"></img><img src="images/rock.jpg"></img></div>
 
   <h1 class="welcomename"> <img src="images/star.png"> Hello, <%= @current_user['username'] %>! <img src="images/star.png"><br/><h1 class = "welcomename2">Let's get down to the nitty gritty.</h1>
 
+</br>
+
 <div class="new-game-button">
   <a href="#" class="button alert" onclick="showDiv()"> START NEW GAME </a>
+</div>
+<div class="current-games-button">
+  <a href="#" class="button alert" onclick="showDiv2()">SHOW ACTIVE GAMES</a>
 </div>
 
 <%= opponent_list %>
