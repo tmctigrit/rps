@@ -40,6 +40,10 @@
   font-size: 17px;
 }
 
+.submitform:visited {
+  background-color: #01887c;
+}
+
 .submitform:hover {
   background-color: #ee6c22;
 }
@@ -104,6 +108,15 @@
 .new-game-button {
 	text-align: center;
 	padding-top: 40px;
+  display: inline;
+  padding-left: 360px;
+}
+
+.current-games-button {
+  text-align: center;
+  padding-top: 40px;
+  display: inline;
+  padding-left: 50px;
 }
 
 
@@ -121,6 +134,10 @@
 	display: none;
 }
 
+#active-id {
+  display: none;
+}
+
 
 .opponent-text {
 	font-family: 'Open Sans Condensed', sans-serif;
@@ -136,6 +153,15 @@
   font-family: 'Montserrat', sans-serif;
   background-color: #ee6c22;
 }
+
+.button.alert:visited {
+  background-color: #ee6c22;
+}
+
+.button.alert:hover {
+  background-color: #383838;
+}
+
 
 
 /*GAMES PAGE */
