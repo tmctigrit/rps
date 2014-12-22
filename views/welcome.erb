@@ -2,12 +2,11 @@
 <!--When that happens, the opponent list will show on the bottom (opponent list from opponent_list.erb-->
 
 
-<div class="signout">
+<div class="signoutbutton">
     <form action='/signout' method="post" name="signout"><button type='submit' value='Submit' id='signout' class="tiny button" action="/signout" method="post">SIGNOUT</button></form><h4 class="signoutname">Luchador <%= @current_user['username'].capitalize %></h4>
 </div>
-
-
-<div class = "logocontainer">
+<br/>
+<div class="logo">
   <img src="images/rpswords.jpg"></img>
 </div>
 

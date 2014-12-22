@@ -29,13 +29,10 @@
 	text-align: center;
 }
 
-.logocontainer {
-  width: 100%;
-  padding-left: 22%;
-}
+
 
 .logo {
-  text-align:center;
+  text-align: center;
 }
 
 .submitform {
@@ -163,7 +160,7 @@
   background-color: #383838;
 }
 
-.signout {
+.signoutbutton {
   background-color: #383838;
   display: block;
   height: 50px;
