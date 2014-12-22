@@ -3,11 +3,11 @@
 
 
 <div class="signout">
-    <h4 class="signoutname">Luchador <%= @current_user['username'].capitalize %></h4><form action='/signout' method="post" name="signout"><button type='submit' value='Submit' id='signout' class="tiny button" action="/signout" method="post">SIGNOUT</button></form>
+    <form action='/signout' method="post" name="signout"><button type='submit' value='Submit' id='signout' class="tiny button" action="/signout" method="post">SIGNOUT</button></form><h4 class="signoutname">Luchador <%= @current_user['username'].capitalize %></h4>
 </div>
 
 
-<div class="logo">
+<div class = "logocontainer">
   <img src="images/rpswords.jpg"></img>
 </div>
 

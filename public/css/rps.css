@@ -29,8 +29,13 @@
 	text-align: center;
 }
 
+.logocontainer {
+  width: 100%;
+  padding-left: 22%;
+}
+
 .logo {
-	text-align: center;
+  text-align:center;
 }
 
 .submitform {
@@ -170,22 +175,29 @@
   height: 50px;
 }
 
+
 .tiny.button{
   background-color: #ee6c22;
   color: #383838;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700px;
-  margin-left: 86%;
-  margin-top: .5%;
+/*  margin-left: 86%;
+  margin-top: .5%;*/
  /* position: absolute;*/
+ float: right;
+ margin-right: 5%;
+ margin-top: .5%;
 }
 
 .signoutname {
   color: white;
   font-family: 'Bad Script', cursive;
-  position: absolute;
+/*  position: absolute;
   left: 71%;
-  top: .9%;
+  top: .9%;*/
+  float: right;
+  margin-right: 2%;
+  margin-top: .9%;
 }
 
 /*GAMES PAGE */
