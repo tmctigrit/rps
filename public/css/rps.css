@@ -162,7 +162,31 @@
   background-color: #383838;
 }
 
+.signout {
+  background-color: #383838;
+ /* padding-left: 1000px;
+  padding-top: 12px;*/
+  display: block;
+  height: 50px;
+}
 
+.tiny.button{
+  background-color: #ee6c22;
+  color: #383838;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700px;
+  margin-left: 86%;
+  margin-top: .5%;
+ /* position: absolute;*/
+}
+
+.signoutname {
+  color: white;
+  font-family: 'Bad Script', cursive;
+  position: absolute;
+  left: 71%;
+  top: .9%;
+}
 
 /*GAMES PAGE */
 

@@ -1,13 +1,19 @@
 <!--Includes the onClick showDiv - will show the div if the user clicks on the start new game button-->
 <!--When that happens, the opponent list will show on the bottom (opponent list from opponent_list.erb-->
 
+
+<div class="signout">
+    <h4 class="signoutname">Luchador <%= @current_user['username'].capitalize %></h4><form action='/signout' method="post" name="signout"><button type='submit' value='Submit' id='signout' class="tiny button" action="/signout" method="post">SIGNOUT</button></form>
+</div>
+
+
 <div class="logo">
   <img src="images/rpswords.jpg"></img>
 </div>
 
 <div class="star"><img src="images/scissors.jpg"></img><img src="images/paper.jpg"></img><img src="images/rock.jpg"></img></div>
 
-  <h1 class="welcomename"> <img src="images/star.png"> Hello, <%= @current_user['username'] %>! <img src="images/star.png"><br/><h1 class = "welcomename2">Let's get down to the nitty gritty.</h1>
+  <h1 class="welcomename"> <img src="images/star.png"> Hello, <%= @current_user['username'].capitalize %>! <img src="images/star.png"><br/><h1 class = "welcomename2">Let's get down to the nitty gritty.</h1>
 
 </br>
 
